@@ -42,7 +42,7 @@ a:visited {
 }
 
 .card {
-    flex: 0 1 450px;
+    flex-basis: 450px;
     border-top-right-radius: 50px;
     border-top-left-radius: 50px;
 }
@@ -80,7 +80,7 @@ a:visited {
     }
 
     .card {
-        flex: 0 1 275px;
+        flex-basis: 275px;
     }
 
     main {
@@ -106,40 +106,53 @@ a:visited {
 
 
 @media print {
+    
     body {
-        font-family: Arial, Helvetica, sans-serif;
+        font-family: Arial, Helvetica;
         background-image: none;
     }
 
     header {
+        animation: none;
         flex-direction: column;
     }
 
     nav {
         width: 100%;
     }
+
     .nav_links {
+        flex-direction: row;
         justify-content: space-around;
     }
 
     .pricing {
         display: flex;
+        flex-wrap: nowrap;
         flex-direction: row;
-        justify-content: center; 
+        flex: 1;
+        margin-top: auto;
     }
 
     .card {
         border: 2px solid #45ADDD;
-        flex: 0 1 325px;
-        margin-bottom: 15px;
+        flex-basis: 225px;
+        margin-top: auto;
+
     }
 
-    .gallery {
+    .gallery, #gallery {
         display: none;
     }
 
-    .thumbs-up {
-        content: "👍";
+ 
+    .card li:nth-child(2)::after {
+        content: "\1F44D"; 
+        font-size: 1em;
+    }
+
+    footer {
+        page-break-before: always;
     }
 }
 
